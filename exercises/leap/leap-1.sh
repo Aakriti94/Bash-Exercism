@@ -3,19 +3,24 @@
 #This script checks a year for a leap year or not
 
 input=0
+re='^[0-9]+$'
 echo "Please enter an year"
 read input
 
-if [[ $(($input % 4)) -eq 0 ]]; then
-  if [[ $(($input % 100)) -eq 0 ]]; then
-    if [[  $(($input % 400)) -eq 0 ]]; then
-      echo "The given year is a leap year."
+if [[ $input =~ $re ]]; then
+  if [[ $(($input % 4)) -eq 0 ]]; then
+    if [[ $(($input % 100)) -eq 0 ]]; then
+      if [[  $(($input % 400)) -eq 0 ]]; then
+        echo "The given year is a leap year."
+      else
+        echo "The given year is not a leap year."
+      fi
     else
-      echo "The given year is not a leap year."
+      echo "The given year is a leap year."
     fi
   else
-    echo "The given year is a leap year."
+    echo "The given year is not a leap year."
   fi
 else
-  echo "The given year is not a leap year."
+  echo "The input is not a number. Please input a number."
 fi
