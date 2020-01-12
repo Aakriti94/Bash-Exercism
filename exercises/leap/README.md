@@ -26,9 +26,22 @@ phenomenon, go watch [this youtube video][video].
 ## Solution 1:
 
 - In the first line we declare a variable ```input``` and initialize it with a value of 0. ```input=0```
+- We then define a regular expression to check if the input entered is number or not. ```re='^[0-9]+$'```
 - Echoing a message ```echo "Please enter an year"```
 - Reading input in the line ```read input```
 - Here, we will use nested ```if-else``` .
+- We will check if the input provided is number or not.
+ ```
+ if [[ $input =~ $re ]];
+ ```
+ If the input provided is a number, we will proceed. Else we would display the message ```echo "The input is not a number. Please input a number."``` and exit. A simple ```if-Else``` would look like this:
+ ```
+ if [[ $input =~ $re ]]; then
+   #statements
+ else
+   echo "The input is not a number. Please input a number."
+ fi
+ ```
 - First we will check the condition, ' every year that is evenly divisible by 4'. If the condition ```[ $(($input % 4)) -eq 0 ]``` is true, we will go further into the nested if. Else we will print that the, ```"The given year is not a leap year."``` . Example, 1997. A simple ```if-Else``` would look like,
 ```
 if [[ $(($input % 4)) -eq 0 ]]; then
@@ -99,11 +112,26 @@ The given year is a leap year.
 
 - In the first line we declare a variable ```input``` and initialize it with a value of 0. ```input=0```
 
+- We then define a regular expression to check if the input entered is number or not. ```re='^[0-9]+$'```
+
 - Echoing a message ```echo "Please enter an year"```
 
 - Reading input in the line ```read input```
 
 - Here we would use ```if-elif```
+
+- We will check if the input provided is number or not.
+ ```
+ if [[ $input =~ $re ]];
+ ```
+ If the input provided is a number, we will proceed. Else we would display the message ```echo "The input is not a number. Please input a number."``` and exit. A simple ```if-Else``` would look like this:
+ ```
+ if [[ $input =~ $re ]]; then
+   #statements
+ else
+   echo "The input is not a number. Please input a number."
+ fi
+ ```
 
 - First condition to be checked is ```[  $(($input % 400)) -eq 0 ]```, if the number is divisible by 400, ```The given year is a leap year.```
 
