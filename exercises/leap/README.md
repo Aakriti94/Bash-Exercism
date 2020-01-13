@@ -110,6 +110,8 @@ The given year is a leap year.
 
 ## Solution 2:
 
+To make our solution more precise and concise.
+
 - In the first line we declare a variable ```input``` and initialize it with a value of 0. ```input=0```
 
 - We then define a regular expression to check if the input entered is number or not. ```re='^[0-9]+$'```
@@ -133,11 +135,11 @@ The given year is a leap year.
  fi
  ```
 
-- First condition to be checked is ```[  $(($input % 400)) -eq 0 ]```, if the number is divisible by 400, ```The given year is a leap year.```
+- First we will check the condition ```[  $(($input % 400)) -eq 0 ]```, if the number is divisible by 400, ```The given year is a leap year.```
 
-- Second condition, if a year is divisible by 100 ```[ $(($input % 100)) -eq 0 ]```, ```"The given year is not a leap year."```
+- If first condition fails then we will check the second condition, if a year is divisible by 100 ```[ $(($input % 100)) -eq 0 ]```, ```"The given year is not a leap year."```
 
-- Third condition, if a year is divisible by 4, ```[ $(($input % 4)) -eq 0 ]```, ```"The given year is a leap year."```
+- If second condition fails then we will check the third condition, if a year is divisible by 4, ```[ $(($input % 4)) -eq 0 ]```, ```"The given year is a leap year."```
 
 - If none of the conditions satisfy, then ```else``` block would be executed, ```"The given year is  not a leap year."```
 
