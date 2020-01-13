@@ -27,7 +27,7 @@ Here are some examples:
 
 
 
-## Solution
+## Solution 1:
 
 We first echo a message to ask user to input a name.
 ```
@@ -64,3 +64,19 @@ Please enter a name
 *
 One for *, one for me.
 ```
+
+## Solution 2:
+
+We first echo a message to ask user to input a name.
+```
+echo "Please enter a name"
+```
+
+Read the user input ```read name``` with the variable ```name```
+
+Here, we echo the output, ```${name:-you}``` means, use value of variable name if provided. Else, use 'you' in the place of input for the output.
+```
+echo "One for ${name:-you}, one for me."
+```
+
+For More information, click [here.](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
