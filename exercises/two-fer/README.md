@@ -41,7 +41,7 @@ Checking if the given input is null or not,
 if ! [[ -z "$name" ]];
 ```
 
-If it is null, the ```else``` part gets executed. Else, the string provided is executed.
+If it is null, the ```else``` part gets executed. Else, the string provided is substituted.
 
 The output:
 
