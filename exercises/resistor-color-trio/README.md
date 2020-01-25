@@ -91,84 +91,86 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 #### <u> Execution </u>
 
 - Here, we are calling the function ```resistor_color_trio``` with the first command-line argument.
-```
-resistor_color_trio "$1"
-```
-By first command-line argument, we mean ```blue``` when we call our script,
-```
-./resistor_color_trio.sh Blue grey brown
-```
-So, it goes in the function ```resistor_color_trio()``` and matches against case,
-```
-[B,b]lue )
-retval=6
-  ;;
-```
+  ```
+  resistor_color_trio "$1"
+  ```
+  By first command-line argument, we mean ```blue``` when we call our script,
+  ```
+  ./resistor_color_trio.sh Blue grey brown
+  ```
+  So, it goes in the function ```resistor_color_trio()``` and matches against case,
+  ```
+  [B,b]lue )
+  retval=6
+    ;;
+  ```
 
-Now,
-```
-retvl=6
-outputString=60
-```
-We are multiplying our ```retval``` by 10 so that the returned value '6' will go to tenths place and '0' takes the ones place. And, ```outputString``` becomes 60.
+  Now,
+  ```
+  retvl=6
+  outputString=60
+  ```
+  We are multiplying our ```retval``` by 10 so that the returned value '6' will go to tenths place and '0' takes the ones place. And, ```outputString``` becomes 60.
+
+<br>
 
 - Now, we are calling the function ```resistor_color_trio``` with the second command-line argument.
-```
-resistor_color_trio "$2"
-```
+  ```
+  resistor_color_trio "$2"
+  ```
 
   By second command-line argument, we mean ```grey``` when we call our script,
-```
-./resistor_color_trio.sh Blue grey brown
-```
-So, it goes in the function ```resistor_color_trio()``` and matches against case,
-```
-[G,g]rey )
-retval=8
-  ;;
-```
+  ```
+  ./resistor_color_trio.sh Blue grey brown
+  ```
 
-In the next line, we add the ```retval``` to ```outputString```. So now, ```outputString=68```
+  So, it goes in the function ```resistor_color_trio()``` and matches against case,
+  ```
+  [G,g]rey )
+  retval=8
+    ;;
+  ```
+
+  In the next line, we add the ```retval``` to ```outputString```. So now, ```outputString=68```
 
   ```
   outputString=$((outputString + retval))
   ```   
 
-Now,
-```
-retval=8
-outputString=68
-```
+  Now,
+  ```
+  retval=8
+  outputString=68
+  ```
 
 - Now, we are calling the function ```resistor_color_trio``` with our third command-line argument.
-```
-resistor_color_trio "$3"
-```
+  ```
+  resistor_color_trio "$3"
+  ```
 
   By third command-line argument, we mean ```brown``` when we call our script,
-```
-./resistor_color_trio.sh Blue grey brown
-```
-So, it goes in the function ```resistor_color_trio()``` and matches against case,
-```
-[B,b]rown )
-retval=1
-  ;;
-```
+  ```
+  ./resistor_color_trio.sh Blue grey brown
+  ```
+  So, it goes in the function ```resistor_color_trio()``` and matches against case,
+  ```
+  [B,b]rown )
+  retval=1
+    ;;
+  ```
 
-Now, we are multiplying ```outputString``` by power of 10 [ ```10**``` means Power of Ten. ] And power is defined by variable ```retval```. Since our last argument is ```brown```, ```retval=1```
+  Now, we are multiplying ```outputString``` by power of 10 [ ```10**``` means Power of Ten. ] And power is defined by variable ```retval```. Since our last argument is ```brown```, ```retval=1```
 
-```
-outputString="$((outputString * 10**retval))"
+  ```
+  outputString="$((outputString * 10**retval))"
 
-```
+  ```
 
-
-Now,
-```
-retval=1
-outputString=680
-```
+  Now,
+  ```
+  retval=1
+  outputString=680
+  ```
 
 - Now, we call the function ```conversion```.
 
