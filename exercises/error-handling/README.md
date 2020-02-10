@@ -15,31 +15,31 @@ Here, we do not see any definitive thing to do. So, we need to refer to the test
 
 We need to print a message "Hello, ```argument we provide```".  The conditions that need to followed are:
 1. There should be only one argument. Here, the argument is ```Alice```
-```
+```sh
 error_handling.sh Alice
 Hello, Alice
 ```
 
 2. we can give one long argument as long as it is only one argument. For a long argument to be taken as one argument, we need to enclose it in ```""```
-```
+```sh
 error_handling.sh "Alice and Bob"
 Hello, Alice and Bob
 ```
 
 3. More than one argument would return an error.
-```
+```sh
 error_handling.sh Alice Bob
 Usage: ./error_handling <greetee>
 ```
 
 4. It would return an error if no argument is provided.
-```
+```sh
 error_handling.sh
 Usage: ./error_handling <greetee>
 ```
 
 5. Empty argument is treated as single argument and will return a string with empty argument.
-```
+```sh
 error_handling.sh ""
 Hello,
 ```
