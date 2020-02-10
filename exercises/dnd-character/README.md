@@ -82,7 +82,7 @@ programming languages are designed to roll dice. One such language is [Troll].
 
 #### <u> Declaration </u>
 
-```
+```sh
 #declaring a array named 'array'
 declare -a array
 
@@ -101,7 +101,7 @@ hitpoints=0
 
   This function generates a random number between 1 to 6 and stores it in an array named ```array```. The loop goes for four times, to generate 4 random numbers on the throw of a dice.
 
-  ```
+  ```sh
   function roll_a_dice_fourtimes() {
     for (( j = 1; j < 5; j++ )); do
       array[j]=$((1 + RANDOM%6))
@@ -116,7 +116,7 @@ hitpoints=0
 
   This function generates the smallest number obtained by function ```roll_a_dice_fourtimes``` and stored in array ```array```.
 
-  ```
+  ```sh
   function smallest_no() {
     if [ ${array[1]} -lt ${array[2]} ] && [ ${array[1]} -lt ${array[3]} ] && [ ${array[1]} -lt ${array[4]} ]; then
       smallest=${array[1]}
@@ -139,7 +139,7 @@ hitpoints=0
 
   This function calculates the sum of the largest three numbers obtained by function ```roll_a_dice_fourtimes```.
 
-  ```
+  ```sh
   function sum_of_largest_three_no() {
     for (( k = 1; k < 5; k++ )); do
       if [[ ${array[k]} -ne $smallest ]]; then
@@ -198,7 +198,7 @@ hitpoints=0
 
 
 - Function ```constitution_modifier_and_hitpoints```
-  ```
+  ```sh
   function constitution_modifier_and_hitpoints() {
     step_one=$((character_array[2]-10))
     div=$((step_one/2))
@@ -216,7 +216,7 @@ hitpoints=0
   }
   ```
   - It takes the value assigned to ability ```constitution``` i.e ```character_array[2]``` , and subtract ```10``` from it. <br> Divide ```step_one``` by 2 and store it a variable ```div``` and store the remainder in variable ```mod``` . ```div``` is our constitution modifier before rounding it off.
-    ```
+    ```sh
     step_one=$((character_array[2]-10))
     div=$((step_one/2))
     mod=$((step_one%2))
@@ -230,7 +230,7 @@ hitpoints=0
   <br>
 
 - Function ```generate_a_character```
-  ```
+  ```sh
   function generate_a_character() {
     constitution_modifier_and_hitpoints
     echo ""
@@ -262,7 +262,7 @@ Call the ```function constitution_modifier_and_hitpoints``` and echo the value o
 
 ## Test Cases and Output
 
-```
+```sh
 ./dnd_character.sh modifier 3
 -4
 
