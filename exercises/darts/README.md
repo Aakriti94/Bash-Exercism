@@ -26,7 +26,7 @@ This particular exercise, since it deals with floating point arithmetic, is natu
 We are given two coordinates ```x``` and ```y``` and we need to determine where the dart has landed on the board and output the points according to that.
 
 We can calculate the distance of two given coordinates from the origin (0, 0) using the formula,
-```
+```sh
 √ x2 + y2 -> square root [(x*x) + (y*y)]
 ```
 
@@ -51,7 +51,7 @@ The radius of the inner circle is ```1``` . All the coordinates (x,y) falling in
 
 Assigning values of command-line arguments to ```x``` and ```y```. <br>
 ```re``` holds the regular expression to validate a number (positive, negative and decimal.)
-```
+```sh
 x="$1"
 y="$2"
 distance=0
@@ -71,7 +71,7 @@ re='^[+-]?[0-9]+([.][0-9]+)?$'
    ```square``` adds ```a``` and ```b```. <br>
    ```distance``` calculates the square root of value stored in ```square``` <br>
    We are calculating the formula ```√ x2 + y2```  in steps because ```x``` and ```y``` could be negative and in decimal and bash does not handle decimal and negative numbers.  
-   ```
+   ```sh
    function calculations() {
      a=$(echo "$x * $x" | bc -l)
      b=$(echo "$y * $y" | bc -l)
@@ -90,7 +90,7 @@ The arguments provided should only be number (positive, negative and decimal).
 Our scripts checks if the arguments provided follow the above mentioned condition.
 
 Firstly, we will check if ```x``` is not a number (positive, negative and decimal). If the condition stands true, the script would echo an error. Else, it would check same for ```y``` and when both the conditions are not passed, it would go in the else block to call Functions ```calculations``` and ```output``` to calculate and then output the points earned.
-```
+```sh
 if ! [[ $x =~ $re ]] ; then
    echo "error: Invalid arguments";
 else
@@ -108,7 +108,7 @@ Here, we are using the reverse technique to determine if the arguments ```x``` a
 
 ## Test cases and output
 
-```
+```sh
 ./darts.sh -9 9
 0
 
