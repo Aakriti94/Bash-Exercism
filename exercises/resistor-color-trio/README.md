@@ -50,7 +50,7 @@ So an input of `"orange", "orange", "orange"` should return:
 
 #### <u> Declaration </u>
 Declare four variables with values
-```
+```sh
 outputString=""
 kiloohms=1000
 megaohms=1000000
@@ -94,22 +94,22 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 #### <u> Execution </u>
 
 - Here, we are calling the function ```resistor_color_trio``` with the first command-line argument.
-  ```
+  ```sh
   resistor_color_trio "$1"
   ```
   By first command-line argument, we mean ```blue``` when we call our script,
-  ```
+  ```sh
   ./resistor_color_trio.sh Blue grey brown
   ```
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
-  ```
+  ```sh
   blue )
   retval=6
     ;;
   ```
 
   Now,
-  ```
+  ```sh
   retvl=6
   outputString=60
   ```
@@ -118,17 +118,17 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 <br>
 
 - Now, we are calling the function ```resistor_color_trio``` with the second command-line argument.
-  ```
+  ```sh
   resistor_color_trio "$2"
   ```
 
   By second command-line argument, we mean ```grey``` when we call our script,
-  ```
+  ```sh
   ./resistor_color_trio.sh Blue grey brown
   ```
 
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
-  ```
+  ```sh
   grey )
   retval=8
     ;;
@@ -136,27 +136,27 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 
   In the next line, we add the ```retval``` to ```outputString```. So now, ```outputString=68```
 
-  ```
+  ```sh
   outputString=$((outputString + retval))
   ```   
 
   Now,
-  ```
+  ```sh
   retval=8
   outputString=68
   ```
 
 - Now, we are calling the function ```resistor_color_trio``` with our third command-line argument.
-  ```
+  ```sh
   resistor_color_trio "$3"
   ```
 
   By third command-line argument, we mean ```brown``` when we call our script,
-  ```
+  ```sh
   ./resistor_color_trio.sh Blue grey brown
   ```
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
-  ```
+  ```sh
   brown )
   retval=1
     ;;
@@ -164,13 +164,13 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 
   Now, we are multiplying ```outputString``` by power of 10 [ ```10**``` means Power of Ten. ] And power is defined by variable ```retval```. Since our last argument is ```brown```, ```retval=1```
 
-  ```
+  ```sh
   outputString="$((outputString * 10**retval))"
 
   ```
 
   Now,
-  ```
+  ```sh
   retval=1
   outputString=680
   ```
@@ -178,7 +178,7 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 - Now, we call the function ```conversion```.
 
   In our case, ```./resistor_color_trio.sh Blue grey brown```
-  ```
+  ```sh
   divide_gigaohms=0
   divide_megaohms=0
   divide_kiloohms=0
@@ -246,7 +246,7 @@ invalid color
   > If Math is your thing, you may want to think of the zeros as exponents of 10. If Math is not your thing, go with the zeros. It really is the same thing, just in plain English instead of Math lingo.
 
   So, I chose the plain English instead of maths for my first approach. Here, in the function ```resistor_color_trio``` I would return the number of zeros (associated with each color) as well. The switch statement would look something like this,
-  ```
+  ```sh
   case "$1" in
     black )
     retval=0
@@ -263,7 +263,7 @@ invalid color
   ```
 
   And, in the Execution part, I was appending strings with each other rather than calculating value of ```outputString```.
-  ```
+  ```sh
   resistor_color_trio "$1"
   outputString=${retval}
 
@@ -288,18 +288,18 @@ invalid color
 
 - ##### Invalid octal number
   If we see the test case,
-  ```
+  ```sh
   resistor_color_trio.sh "black" "grey" "black"
   ```
 
   Our ```outputString``` would be ```outputString=08``` since, ```black``` return '0' zeroes.
-  ```
+  ```sh
   black )
   retval=0
   zeros=""
   ```
   And, ```0``` and ```8``` <b> makes an invalid octal number. </b> It would give an error like,
-  ```
+  ```text
    line 58: 08: value too great for base (error token is "08")
   ```
 
