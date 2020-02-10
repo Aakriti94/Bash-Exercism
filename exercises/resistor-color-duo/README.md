@@ -25,7 +25,7 @@ The band colors are encoded as follows:
 
 Here, we declare a function ```resistor_color_duo``` and call it two times with different command line arguments.
 
-```
+```sh
 resistor_color_duo "$1"
 resistor_color_duo "$2"
 ```
@@ -34,7 +34,7 @@ Here, we are calling function ```resistor_color_duo``` first with argument ```$1
 <u>Function:</u>
 
 We are declaring a function,
-```
+```sh
 function resistor_color_duo() {
 }
 ```
@@ -44,7 +44,7 @@ Inside it we are implementing a switch case which will match color passed as arg
 <u>Implementation:</u>
 
 - We pass arguments ```Black Red``` while we call out script.
-```
+```sh
 ./resistor_color_duo.sh Black Red
 ```
 
@@ -52,7 +52,7 @@ Inside it we are implementing a switch case which will match color passed as arg
 - First the program will call the function ```resistor_color_duo "$1"``` with argument ```$1```
 - inside the function, the argument passed in the line ```case "$1" in``` is ```$1``` i.e. ```black```. It will search for case matching with Black and execute it.
 Here, we will match,
-```
+```sh
 [B,b]lack )
 echo -n "0"
   ;;
