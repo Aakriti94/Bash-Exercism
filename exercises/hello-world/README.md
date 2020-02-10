@@ -15,7 +15,7 @@ The output: ```Hello, World!```
 
 Here, in my solution, I have declared a function ``` hello_world() ``` and  initialised a variable ```var``` as ```var='Hello, World!'```.
 
-```
+```sh
 function hello_world() {
   var='Hello, World!'
 }
@@ -23,7 +23,7 @@ function hello_world() {
 
 Coming to the execution part of script, 
 
-```
+```sh
 var=''
 hello_world
 echo $var
