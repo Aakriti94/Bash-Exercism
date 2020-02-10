@@ -5,36 +5,38 @@ kiloohms=1000
 megaohms=1000000
 gigaohms=1000000000
 
+shopt -s nocasematch
+
 function resistor_color_trio() {
   case "$1" in
-    [B,b]lack )
+    black )
     retval=0
       ;;
-    [B,b]rown )
+    brown )
     retval=1
       ;;
-    [R,r]ed )
+    red )
     retval=2
       ;;
-    [O,o]range )
+    orange )
     retval=3
       ;;
-    [Y,y]ellow )
+    yellow )
     retval=4
       ;;
-    [G,g]reen )
+    green )
     retval=5
       ;;
-    [B,b]lue )
+    blue )
     retval=6
       ;;
-    [V,v]iolet )
+    violet )
     retval=7
       ;;
-    [G,g]rey )
+    grey )
     retval=8
       ;;
-    [W,w]hite )
+    white )
     retval=9
       ;;
     *)

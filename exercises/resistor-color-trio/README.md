@@ -57,6 +57,9 @@ megaohms=1000000
 gigaohms=1000000000
 ```
 
+```shopt -s nocasematch``` when turned on does a case-insensitive search. <br>
+Read about the nocasematch setting in [The Shopt Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Shopt-Builtin) and [Dealing with case sensitive pattern.](https://bash.cyberciti.biz/guideDealing_with_case_sensitive_pattern/)
+
 #### <u> Functions </u>
 
 We have two functions here: ```function resistor_color_trio()``` and ```function conversion()```
@@ -65,7 +68,7 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 
   ```case "$1"``` takes in parameter value and checks for the matched case in the cases given.
 
-  ```[B,b]lack )``` makes the case 'case-insensitive' i.e. makes it match with both ```black``` and ```Black```.
+  ```black )``` searches for the input black (case-insensitive.)
 
   ```retval``` is the value returned by the color.
 
@@ -100,7 +103,7 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
   ```
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
   ```
-  [B,b]lue )
+  blue )
   retval=6
     ;;
   ```
@@ -126,7 +129,7 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
 
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
   ```
-  [G,g]rey )
+  grey )
   retval=8
     ;;
   ```
@@ -154,7 +157,7 @@ We have two functions here: ```function resistor_color_trio()``` and ```function
   ```
   So, it goes in the function ```resistor_color_trio()``` and matches against case,
   ```
-  [B,b]rown )
+  brown )
   retval=1
     ;;
   ```
@@ -245,15 +248,15 @@ invalid color
   So, I chose the plain English instead of maths for my first approach. Here, in the function ```resistor_color_trio``` I would return the number of zeros (associated with each color) as well. The switch statement would look something like this,
   ```
   case "$1" in
-    [B,b]lack )
+    black )
     retval=0
     zeros=""
       ;;
-    [B,b]rown )
+    brown )
     retval=1
     zeros=0
       ;;
-    [R,r]ed )
+    red )
     retval=2
     zeros=00
       ;;
@@ -291,7 +294,7 @@ invalid color
 
   Our ```outputString``` would be ```outputString=08``` since, ```black``` return '0' zeroes.
   ```
-  [B,b]lack )
+  black )
   retval=0
   zeros=""
   ```
@@ -301,3 +304,21 @@ invalid color
   ```
 
   So, take the safe road and deal it as a number right from the start and save a lot of time. Else, if you make it work right with strings, please share it with me as well. :)
+
+
+  - ##### Problem with case-insensitive search in ```[B,b]lack )```
+
+  After a mentor in exercism pointed out that my script is accepting "black" or "Black" or ",lack" for colour code 0.
+
+  ```
+  ./resistor_color_trio.sh ,range orange black
+  33 ohms
+
+  ./resistor_color_trio.sh ,range ,range ,lack
+  33 ohms
+  ```
+
+  We can clearly see that my script is accepting "black" or "Black" or ",lack", which is an error. <br>
+  To resolve this I used ```shopt -s nocasematch``` which turns on the case insensitive search in case statements.
+
+   For more information read about the nocasematch setting in [The Shopt Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Shopt-Builtin) and [Dealing with case sensitive pattern.](https://bash.cyberciti.biz/guideDealing_with_case_sensitive_pattern/)
