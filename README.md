@@ -9,3 +9,6 @@
 6. [Resistor Color Duo](https://github.com/Aakriti94/Bash-Exercism/tree/master/exercises/resistor-color-duo)
 7. [Resistor Color Trio](https://github.com/Aakriti94/Bash-Exercism/tree/master/exercises/resistor-color-trio)
 8. [Two Fer](https://github.com/Aakriti94/Bash-Exercism/tree/master/exercises/two-fer)
+9. [Error Handling](https://github.com/Aakriti94/Bash-Exercism/tree/master/exercises/error-handling)
+10. [Darts](https://github.com/Aakriti94/Bash-Exercism/tree/master/exercises/darts)
+
