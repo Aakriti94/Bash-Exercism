@@ -19,17 +19,17 @@ Note that the list of inputs may vary; your solution should be able to handle li
 ## Solution
 
 Declare an array named ```array_of_inputs```.
-```
+```sh
 declare -a array_of_inputs
 ```
 
 Give the entire command line argument as an input to the array ```array_of_inputs```
-```
+```sh
 array_of_inputs=$@
 ```
 
 Store the length of the array in variable ```length_of_array```
-```
+```sh
 length_of_array=$#
 ```
 
@@ -44,7 +44,7 @@ Now, echoing the second half of the message, ```echo " the" "${!i}" "was lost."`
 ```(( i-- ))``` - Decrementing the value of ```i```. Hence, ```i=1```.
 
 Now, we are checking if any command line argument was provided, by checking the length of the array. If command line arguments are provided, it would echo a message with first command line argument ```$1``` (Our last line of the proverb). Else, it would echo a empty string.
-```
+```sh
 if [[ $length_of_array > 0 ]]; then
   echo "And all for the want of a" "$1""."
 else
