@@ -35,7 +35,7 @@ phenomenon, go watch [this youtube video][video].
  if [[ $input =~ $re ]];
  ```
  If the input provided is a number, we will proceed. Else we would display the message ```echo "The input is not a number. Please input a number."``` and exit. A simple ```if-Else``` would look like this:
- ```
+ ```sh
  if [[ $input =~ $re ]]; then
    #statements
  else
@@ -43,7 +43,7 @@ phenomenon, go watch [this youtube video][video].
  fi
  ```
 - First we will check the condition, ' every year that is evenly divisible by 4'. If the condition ```[ $(($input % 4)) -eq 0 ]``` is true, we will go further into the nested if. Else we will print that the, ```"The given year is not a leap year."``` . Example, 1997. A simple ```if-Else``` would look like,
-```
+```sh
 if [[ $(($input % 4)) -eq 0 ]]; then
 (Would add some other conditions here)
 else
@@ -52,7 +52,7 @@ fi
 ```
 
 - If the condition ```[ $(($input % 4)) -eq 0 ]``` stands true, then we would check if the year is divisible by 100(then, it would not be a leap year unless divided by 400.), ```[ $(($input % 100)) -eq 0 ]``` . If it is divisible by 100, we would go in another nested ```if``` block, else we would print ```"The given year is a leap year."``` as the year would be divisible by 4 and not 100. Example, 1996. Now the code with this added condition would look like,
-```
+```sh
 if [[ $(($input % 4)) -eq 0 ]]; then
   if [[ $(($input % 100)) -eq 0 ]]; then
     (Would add some other conditions here)
@@ -66,7 +66,7 @@ fi
 ```
 
 - If the condition ```[ $(($input % 100)) -eq 0 ]``` stands true. Then we would test another condition, if the year is also evenly divisible by 400, then it is a leap year. Adding another nested if block to test the condition ```[  $(($input % 400)) -eq 0 ]```. If the condition stands true, then it is a leap year, else not. The final code look like,
-```
+```sh
 if [[ $(($input % 4)) -eq 0 ]]; then
   if [[ $(($input % 100)) -eq 0 ]]; then
     if [[  $(($input % 400)) -eq 0 ]]; then
@@ -83,25 +83,25 @@ fi
 ```
 
 The output:
-```
+```sh
 Please enter an year
 1996
 The given year is a leap year.
 ```
 
-```
+```sh
 Please enter an year
 1997
 The given year is not a leap year.
 ```
 
-```
+```sh
 Please enter an year
 1900
 The given year is not a leap year.
 ```
 
-```
+```sh
 Please enter an year
 2000
 The given year is a leap year.
@@ -123,11 +123,11 @@ To make our solution more precise and concise.
 - Here we would use ```if-elif```
 
 - We will check if the input provided is number or not.
- ```
+ ```sh
  if [[ $input =~ $re ]];
  ```
  If the input provided is a number, we will proceed. Else we would display the message ```echo "The input is not a number. Please input a number."``` and exit. A simple ```if-Else``` would look like this:
- ```
+ ```sh
  if [[ $input =~ $re ]]; then
    #statements
  else
@@ -145,25 +145,25 @@ To make our solution more precise and concise.
 
 
 The output:
-```
+```sh
 Please enter an year
 1996
 The given year is a leap year.
 ```
 
-```
+```sh
 Please enter an year
 1997
 The given year is not a leap year.
 ```
 
-```
+```sh
 Please enter an year
 1900
 The given year is not a leap year.
 ```
 
-```
+```sh
 Please enter an year
 2000
 The given year is a leap year.
