@@ -1,35 +1,37 @@
 #!/usr/bin/env bash
 
+shopt -s nocasematch
+
 function resistor_color_duo() {
   case "$1" in
-    [B,b]lack )
+    black )
     echo -n "0"
       ;;
-    [B,b]rown )
+    brown )
     echo -n 1
       ;;
-    [R,r]ed )
+    red )
     echo -n 2
       ;;
-    [O,o]range )
+    orange )
     echo -n 3
       ;;
-    [Y,y]ellow )
+    yellow )
     echo -n 4
       ;;
-    [G,g]reen )
+    green )
     echo -n 5
       ;;
-    [B,b]lue )
+    blue )
     echo -n 6
       ;;
-    [V,v]iolet )
+    violet )
     echo -n 7
       ;;
-    [G,g]rey )
+    grey )
     echo -n 8
       ;;
-    [W,w]hite )
+    white )
     echo -n 9
       ;;
     *)

@@ -23,6 +23,9 @@ The band colors are encoded as follows:
 
 ##  Solution
 
+```shopt -s nocasematch``` when turned on does a case-insensitive search. <br>
+Read about the nocasematch setting in [The Shopt Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Shopt-Builtin) and [Dealing with case sensitive pattern.](https://bash.cyberciti.biz/guideDealing_with_case_sensitive_pattern/)
+
 Here, we declare a function ```resistor_color_duo``` and call it two times with different command line arguments.
 
 ```sh
@@ -52,8 +55,13 @@ Inside it we are implementing a switch case which will match color passed as arg
 - First the program will call the function ```resistor_color_duo "$1"``` with argument ```$1```
 - inside the function, the argument passed in the line ```case "$1" in``` is ```$1``` i.e. ```black```. It will search for case matching with Black and execute it.
 Here, we will match,
+<<<<<<< HEAD
+```
+black )
+=======
 ```sh
 [B,b]lack )
+>>>>>>> cb39b4d5097a3698b21983711a2fe1a4d3c7f0f7
 echo -n "0"
   ;;
 ```
@@ -93,3 +101,20 @@ invalid color
 ./resistor_color_duo.sh green brown orange
 51
 ```
+
+
+## Problems I ran into:
+
+- ##### Problem with case-insensitive search in ```[B,b]lack )```
+
+  After a mentor in exercism pointed out that my script is accepting "black" or "Black" or ",lack" for colour code 0.
+
+  ```
+  ./resistor_color_duo.sh brown ,lack
+  10
+  ```
+
+  We can clearly see that my script is accepting "black" or "Black" or ",lack", which is an error. <br>
+  To resolve this I used ```shopt -s nocasematch``` which turns on the case insensitive search in case statements.
+
+   For more information read about the nocasematch setting in [The Shopt Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Shopt-Builtin) and [Dealing with case sensitive pattern.](https://bash.cyberciti.biz/guideDealing_with_case_sensitive_pattern/)
