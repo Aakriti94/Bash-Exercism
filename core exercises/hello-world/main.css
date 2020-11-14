@@ -1,0 +1,18 @@
+body {
+  background-color: #fbe2e5;
+  height: 100%;
+  margin-top: 30vh;
+}
+
+h1 {
+  font-family: monospace;
+  text-align: center;
+  color: #383e56;
+  font-size: 300%;
+}
+
+#helloworld {
+  font-size: 1000%;
+  color: #d8345f;
+  visibility: hidden;
+}
