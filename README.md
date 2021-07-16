@@ -1,4 +1,2 @@
 # Bash-Exercism
- Exercise solutions for bash scripts at https://exercism.io/
-
-
+Exercise solutions for bash at https://exercism.io/
