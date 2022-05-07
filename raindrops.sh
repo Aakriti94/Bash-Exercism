@@ -25,5 +25,8 @@ outputString=''
 # Here parameter-> outputString
 # word -> $1
 
+## Logic:
+# If outputString is empty - 3,5,7 werent factors -> print $1
+# else, print -> outputString
 
 echo ${outputString:-$1}
